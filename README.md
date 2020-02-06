@@ -36,3 +36,4 @@ Run:
 cd opn 
 python gibson_inpaint.py
 ```
+The redered input is in "Image_inputs" and the the inpainted output in "Image_results"
