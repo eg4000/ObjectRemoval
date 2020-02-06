@@ -1,0 +1,37 @@
+envname: DroneNavigateEnv
+#model_id: Allensville
+#model_id: Coffeen
+model_id: Collierville
+target_orn: [0, 0, 1.57]
+target_pos: [-14.3, 45.07, 0.5]
+initial_orn: [0, 0, 0]
+#initial_orn: [0, 0, 4.712]
+#initial_orn: [0, 0,  3.14]
+initial_pos: [0, 0, 0]
+#initial_pos: [0.65,  0,  0.5]
+#initial_pos: [6.6, 5, 0.5]
+fov: 1.57
+is_discrete: true
+
+use_filler: true
+display_ui: false
+show_diagnostics: false
+ui_num: 4
+ui_components: [RGB_FILLED, RGB_PREFILLED, DEPTH, NORMAL]
+random:
+  random_initial_pose : false
+  random_target_pose : false
+  random_init_x_range: [-0.1, 0.1]
+  random_init_y_range: [-0.1, 0.1]
+  random_init_z_range: [-0.1, 0.1]
+  random_init_rot_range: [-0.1, 0.1]
+
+output: [nonviz_sensor, rgb_filled, rgb_prefilled, depth, normal]
+resolution: 256
+
+speed:
+  timestep: 0.01
+  frameskip: 1
+
+mode: headless #gui|headless
+verbose: false
