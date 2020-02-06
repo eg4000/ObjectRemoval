@@ -111,7 +111,7 @@ if __name__ == '__main__':
     args = get_arguments()
     with open(args.config, 'r') as f:
         config_data = yaml.load(f)
-    config_data['model_id'] = 'Collierville'
+    # config_data['model_id'] = 'Collierville'
     config_data['initial_pos'] = [0, 0, 0]
     config_data['initial_orn'] = [0, 0, 3.14]
     env = DroneNavigateEnv(config=config_data)

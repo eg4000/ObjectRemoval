@@ -151,7 +151,7 @@ def load_file(npz_path, building):
     ''' Load 3D Scne Graph data in the npz files
         panoramas [output] : one numpy array with object instances and one with object classes
     '''
-    data = np.load(npz_path)['output'].item()
+    data = np.load(npz_path, allow_pickle=True)['output'].item()
 
     # set bldg attributes
     for key in data['building'].keys():
@@ -277,12 +277,7 @@ def export_segm_png(model, gibson_pano_path, palette_path, export_viz_path):
         pano_inst = panos[pano]['object_instance']
         # load Gibson rgb panorama
         rgb_pano = Image.open(os.path.join(gibson_pano_path, 'point_' + pano + '_view_equirectangular_domain_rgb.png'))
-
-        semg_class = rgb_pano.copy()
-        inst_class = rgb_pano.copy()
         att_class = Image.fromarray(np.zeros_like(rgb_pano))
-        segm_pixs = semg_class.load()
-        inst_pixs = inst_class.load()
         att_pixs = att_class.load()
 
         unique_instances = np.unique(pano_inst)
@@ -290,7 +285,6 @@ def export_segm_png(model, gibson_pano_path, palette_path, export_viz_path):
             if inst == 0:
                 continue
             locs = np.where(pano_inst == inst)
-            class_ = pano_class[locs[0], locs[1]][0]
             color_att = colors[inst]
             if inst not in att_dict:
                 curr_object_att = dict(objects[inst].__dict__)
@@ -298,14 +292,8 @@ def export_segm_png(model, gibson_pano_path, palette_path, export_viz_path):
                 curr_object_att['color'] = color_att
                 att_dict[inst] = curr_object_att
             for row in np.transpose(np.array(locs)):
-                color_class = colors[class2col.index(class_)]
-                color_inst = colors[ind + 1]
-                inst_pixs[int(row[1]), int(row[0])] = (color_inst[0], color_inst[1], color_inst[2])
-                segm_pixs[int(row[1]), int(row[0])] = (color_class[0], color_class[1], color_class[2])
                 att_pixs[int(row[1]), int(row[0])] = (color_att[0], color_att[1], color_att[2])
-        # semg_class.save(os.path.join(export_viz_path, pano+'_class_segm.png'))
-        # inst_class.save(os.path.join(export_viz_path, pano+'_class_inst.png'))
-        att_path = os.path.join(export_viz_path, 'masks')
+        att_path = os.path.join(export_viz_path, 'pano', 'masks')
         if not os.path.exists(att_path):
             os.makedirs(att_path)
         att_class.save(os.path.join(att_path, 'point_' + pano + '_view_equirectangular_domain_rgb.png'))

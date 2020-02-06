@@ -48,8 +48,8 @@ class BaseRobotEnv(BaseEnv):
     """
     DEFAULT_PORT = 5556
 
-    def __init__(self, config, tracking_camera, scene_type="building", gpu_idx=0):
-        BaseEnv.__init__(self, config, scene_type, tracking_camera)
+    def __init__(self, config, tracking_camera, scene_type="building", gpu_idx=0, pano_type='rgb'):
+        BaseEnv.__init__(self, config, scene_type, tracking_camera,  pano_type=pano_type)
 
         self.camera_x = 0
         self.walk_target_x = 1e3  # kilometer away
@@ -300,9 +300,9 @@ class CameraRobotEnv(BaseRobotEnv):
     PC renderer is not initialized to save time.
     """
     multiprocessing = True
-    def __init__(self, config, gpu_idx, scene_type, tracking_camera):
+    def __init__(self, config, gpu_idx, scene_type, tracking_camera, pano_type='rgb'):
         ## The following properties are already instantiated inside xxx_env.py:
-        BaseRobotEnv.__init__(self, config, tracking_camera, scene_type, gpu_idx)
+        BaseRobotEnv.__init__(self, config, tracking_camera, scene_type, gpu_idx, pano_type=pano_type)
 
         if self.gui:
             self.screen_arr = np.zeros([512, 512, 3])
