@@ -28,12 +28,16 @@ python load.py --model model_name
 
 
 
-To run object removal: \
-update the 'model_id' field in opn/play_drone_camera.yaml with the model name.
-
+To run object removal for one model: \
 Run:
 ```bash
 cd opn 
-python gibson_inpaint.py
+python gibson_inpaint.py --model model_name
 ```
-The rendered input is in "Image_inputs" and the the inpainted output in "Image_results"
+The rendered input is in "Image_inputs" and the the inpainted output in "Image_results". \
+
+To run object removal for all models: \
+
+```bash
+python inpaint.sh
+```
