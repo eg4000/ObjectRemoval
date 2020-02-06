@@ -13,7 +13,7 @@ Save the 3DSceneGraph folder ("verified_graph") under GibsonEnv/gibson/assets.
 
 ## Usage
 
-Build the panoramic for all models masks with:
+Build the panoramic masks for all models with:
 
 ```bash
 cd 3DSceneGraph 
