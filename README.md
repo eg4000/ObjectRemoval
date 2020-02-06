@@ -34,7 +34,7 @@ Run:
 cd opn 
 python gibson_inpaint.py --model model_name
 ```
-The rendered input is in "Image_inputs" and the the inpainted output in "Image_results". \
+The rendered input is in "Image_inputs" and the the inpainted output in "Image_results".
 
 To run object removal for all models:
 
