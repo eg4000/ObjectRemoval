@@ -13,11 +13,20 @@ Save the 3DSceneGraph folder ("verified_graph") under GibsonEnv/gibson/assets.
 
 ## Usage
 
-Build the panoramic masks with 
+Build the panoramic for all models masks with:
+
+```bash
+cd 3DSceneGraph 
+bash load.sh
+```
+or for one model with:
+
 ```bash
 cd 3DSceneGraph 
 python load.py --model model_name
 ```
+
+
 
 To run object removal: \
 update the 'model_id' field in opn/play_drone_camera.yaml with the model name.
