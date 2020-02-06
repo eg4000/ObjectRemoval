@@ -1,6 +1,7 @@
 # ObjectRemoval
 
-Based on code from : https://github.com/StanfordVL/GibsonEnv \
+Based on code from: \
+https://github.com/StanfordVL/GibsonEnv \
 https://github.com/StanfordVL/3DSceneGraph \
 https://github.com/seoungwugoh/opn-demo \
 The licenses are included in the above links.
