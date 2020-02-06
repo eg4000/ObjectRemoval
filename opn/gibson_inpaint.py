@@ -39,7 +39,7 @@ from opn.models.OPN import OPN
 def get_arguments():
     parser = argparse.ArgumentParser(description="args")
     parser.add_argument('--config', type=str, default=config_file)
-
+    parser.add_argument("--model", type=str, help="Name of Gibson database model", default="Collierville")
     return parser.parse_args()
 
 
@@ -102,18 +102,19 @@ def get_mask(img):
 
 
 if __name__ == '__main__':
-
-    ####################    Navigate    ####################
-
-    ####################Load env
     offset = [1.66530786, 0.6650605, 0.05189579]
     config_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'play_drone_camera.yaml')
     args = get_arguments()
     with open(args.config, 'r') as f:
         config_data = yaml.load(f)
-    # config_data['model_id'] = 'Collierville'
+
+    config_data['model_id'] = args.model
     config_data['initial_pos'] = [0, 0, 0]
     config_data['initial_orn'] = [0, 0, 3.14]
+
+    ####################    Navigate    ####################
+
+    ####################Load env
     env = DroneNavigateEnv(config=config_data)
     env2 = DroneNavigateEnv(config=config_data, pano_type='masks')
     env.reset()
