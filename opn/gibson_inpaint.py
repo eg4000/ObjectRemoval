@@ -251,7 +251,7 @@ if __name__ == '__main__':
                 mkey, mval, mhol = model(frames[:, :, midx], valids[:, :, midx], dists[:, :, midx])
 
             # for f in range(T):
-            for f in [0]:
+            for f in [0, 8, 14]:
                 # memory selection
                 # print('memory selection {}/{}'.format(f, T))
 
@@ -278,6 +278,6 @@ if __name__ == '__main__':
                 canvas = np.concatenate([ov_true, est], axis=0)
 
                 canvas = Image.fromarray(canvas)
-                canvas.save(os.path.join(save_path, 'res_{}.jpg'.format(midx)))
+                canvas.save(os.path.join(save_path, 'res_{}_{}.jpg'.format(f, midx)))
 
         print('Results are saved: ./{}'.format(save_path))
