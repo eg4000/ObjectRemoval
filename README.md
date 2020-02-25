@@ -4,11 +4,12 @@ Based on code from: \
 https://github.com/StanfordVL/GibsonEnv \
 https://github.com/StanfordVL/3DSceneGraph \
 https://github.com/seoungwugoh/opn-demo \
+https://github.com/JiahuiYu/generative_inpainting \
 The licenses are included in the above links.
 
 ## Installation
 
-Follow the instructions in the 3 internal README files to download and install the relevant data, code, models and dependencies. \
+Follow the instructions in the 4 internal README files to download and install the relevant data, code, models and dependencies. \
 Save the 3DSceneGraph folder ("verified_graph") under GibsonEnv/gibson/assets.
 
 ## Usage
