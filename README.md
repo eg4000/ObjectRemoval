@@ -42,3 +42,24 @@ To run object removal for all models:
 ```bash
 python inpaint.sh
 ```
+
+To reproduce the experiments on Places2:
+
+Download [Places2](http://data.csail.mit.edu/places/places365/val_256.tar) and save under "generative_inpainting/examples/val_256"
+
+Test on OPN:
+```bash
+cd opn 
+python test_places2.py
+```
+
+Test on SN-PatchGAN:
+```bash
+cd generative_inpainting 
+python test_places2.py --checkpoint_dir model_logs/release_places2_256
+```
+
+Evaluate:
+```bash
+python eval.py
+```
