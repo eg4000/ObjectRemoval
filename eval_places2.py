@@ -4,6 +4,7 @@ import os
 import numpy as np
 import cv2
 
+# based on https://github.com/JiahuiYu/generative_inpainting/issues/146
 
 def avg(lst):
     return sum(lst) / len(lst)
@@ -81,7 +82,7 @@ if __name__ == '__main__':
 
         l1_opns.append(l1_opn)
         l2_opns.append(l2_opn)
-        psnr_opns.append(psnr_opns)
+        psnr_opns.append(psnr_opn)
         tv_opns.append(tv_opn)
 
     print('l1: sn={}, opn={}'.format(avg(l1_sns), avg(l1_opns)))
