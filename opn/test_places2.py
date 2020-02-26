@@ -15,18 +15,17 @@ from opn.models.OPN import OPN
 
 def get_arguments():
     parser = argparse.ArgumentParser(description="args")
-    parser.add_argument("--input", type=str, default='3e91f10205_2', required=True)
     return parser.parse_args()
 args = get_arguments()
-seq_name = args.input
+seq_name = 'val_256'
 
 
 #################### Load image
 # T, H, W = 5, 240, 424
 # H, W = 256, 256
-
-image_files = glob.glob(os.path.join('Image_inputs', seq_name, '*.jpg'))
-mask_file = os.path.join('Image_inputs', 'mask.png')
+input_path = '../generative_inpainting/examples'
+image_files = glob.glob(os.path.join(input_path, seq_name, '*.jpg'))
+mask_file = os.path.join(input_path, 'mask.png')
 mask = np.array(Image.open(mask_file).convert('RGB'))/255.
 orig_mask = mask.astype(np.uint8)[:, :, 0]
 save_path = os.path.join('Image_results', seq_name)
