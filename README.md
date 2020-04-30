@@ -6,13 +6,13 @@ https://github.com/seoungwugoh/opn-demo \
 https://github.com/JiahuiYu/generative_inpainting \
 The licenses are included in the above links.
 
-<img src="figures/Image inpainting.png" width="500">
+<img src="figures/Image inpainting.png" width="700">
 
-<img src="figures/Video frames.png" width="500">
+<img src="figures/Video frames.png" width="700">
 
-<img src="figures/3D space inpainting.png" width="500">
+<img src="figures/3D space inpainting.png" width="700">
 
-<img src="figures/results.png" width="500">
+<img src="figures/results.png" width="700">
 
 
 ## Installation
